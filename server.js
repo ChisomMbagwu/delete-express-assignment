@@ -1,75 +1,38 @@
 const studentDB = require("./db/database.json");
 const express = require("express");
 const uuid = require("uuid").v4();
-const writeFile = require("./helper/WriteFile");
+const writeFile = require("./helper/writefile");
 const PORT = 5000;
 
 const app = express();
 app.use(express.json());
 app.post("/create-student", async (req, res) => {
+    const { name, email, age, gender, isMarried } = req.body;
 
-const { name, email, age, gender, isMarried } = req.body;
+    if (!name) return res.status(400).json({ message: "Please enter your name" });
+    if (!email) return res.status(400).json({ message: "Please enter your email" });
+    if (!age) return res.status(400).json({ message: "Please enter your age" });
+    if (!gender) return res.status(400).json({ message: "Please enter your gender" });
+    if (isMarried === undefined) return res.status(400).json({ message: "Please specify if you are married" });
 
-if (!name) {
-return res.status(400).json({
-  message: "Please enter your name",
+    const student = {
+        id: uuid(),
+        name,
+        email: email.toLowerCase(),
+        age,
+        gender,
+        isMarried,
+    };
+
+    studentDB.push(student);
+    try {
+        await writeFile(studentDB);
+        return res.status(201).json({ message: "Student created successfully", data: student });
+    } catch (err) {
+        return res.status(500).json({ message: "Failed to save student", error: err.message });
+    }
 });
 
-} if (!email) {
-
-return res.status(400).json({
-    message: "Please enter your email",
-});
-
-} if (!age) {
-return res.status(400).json({
-
-  message: "Please enter your age",
-
-});
-
-} if (!gender) {
-
-return res.status(400).json({
-
-  message: "Please enter your gender",
-
-});
-
-}
-
-if (isMarried === undefined) {
-return res.status(400).json({
-    message: "Please specify if you are married",
-});
-
-}
-
-const student = {
-
-id: uuid,
-
-name,
-
-email: email.toLowerCase(),
-
-age,
-
-gender,
-
-isMarried,
-
-};
-
-console.log(student);
-
-studentDB.push(student);
-await writeFile(studentDB);
-res.status(201).json({
-message: "Student created successfully",
-data: student,
-});
-});
 
 app.get("/all-students", (req, res) => {
     const students = studentDB.length;

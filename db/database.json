@@ -1,1 +1,19 @@
-[]
+[
+    {
+    "id": "8d0a44b1-0d8a-4910-c87f-c5098f5d64cb",
+    "name": "Chisom",
+    "age": 15,
+    "email": "chisom@gmail.com",
+    "gender": "Female",
+    "isMarried": true
+},
+
+   {
+    "id": "9494dca0-3e75-4ad1-8718-cbf5d91bb37d",
+    "name": "Mbagwu",
+    "age": 20,
+    "email": "mbagwu@gmail.com",
+    "gender": "Female",
+    "isMarried": false
+}
+]

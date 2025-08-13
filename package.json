@@ -4,16 +4,24 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js", 
-     "dev": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "uuid": "^11.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChisomMbagwu/delete-express-assignment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChisomMbagwu/delete-express-assignment/issues"
+  },
+  "homepage": "https://github.com/ChisomMbagwu/delete-express-assignment#readme",
+  "description": ""
 }
