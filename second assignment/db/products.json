@@ -1,0 +1,20 @@
+[
+  {
+    "id": "9494dca0-3e75-4ad1-8718-cbf5d91bb37d",
+    "storeName": "Bokku",
+    "goods": "Bread",
+    "unitPrice": "1300.00",
+    "quantity": 5,
+    "totalPrice": "6500.00",
+    "isAvailable": true
+  },
+  {
+    "id": "78e4b706-8f6b-46cf-b8f0-e467eb8283a5",
+    "storeName": "Moremart",
+    "goods": "Parfait",
+    "unitPrice": "3000.00",
+    "quantity": 5,
+    "totalPrice": "15000.00",
+    "isAvailable": true
+  }
+]
